@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Denoising Result</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            animation: fadeIn 1s;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            animation: slideInFromLeft 1s;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .images-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .images-container img {
+            max-width: 55%;
+            height: auto;
+            border: 5px solid #adf5f4;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .images-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            margin-top: 30px;
+            padding: 6px 12px;
+            border: 2px solid #000;
+            background-color: #00c7fe;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            background-color: #0b8f1f;
+            transform: scale(1.05);
+
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        h3{
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid #044641;
+            border-radius: 45px;
+            font-size: 16px;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Denoising Result</h1>
+        <div class="images-container">
+            <div>
+                <h3>Uploaded Image:</h3>
+                <img src="{{ uploaded_file_url }}" alt="Uploaded Image">
+            </div>
+            <div>
+                <h3>Denoised Image:</h3>
+                <img src="{{ denoised_img_url }}" alt="Denoised Image">
+            </div>
+        </div>
+        <a href="{% url 'index' %}">Upload Another Image</a>
+    </div>
+</body>
+</html>
